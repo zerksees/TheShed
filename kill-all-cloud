@@ -1,0 +1,11 @@
+Set-ExecutionPolicy Bypass -Scope Process -Force
+Stop-Process -Name OneDrive -Force
+Stop-Process -Name Drop* -Force
+Stop-Process -Name DbxSvc -Force
+Stop-Process -Name GoogleDriveFS -Force
+Stop-Process -Name ONENOTEM -Force
+$od = Get-Process -Name OneDrive | Format-List Name, HasExited
+$db = Get-Process -Name Dropbox | Format-List Name, HasExited
+$gd = Get-Process -Name GoogleDriveFS | Format-List Name, HasExited
+$on = Get-Process -Name ONENOTEM | Format-List Name, HasExited
+Write-Output $od $db $gd $on
